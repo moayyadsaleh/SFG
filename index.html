@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="styles.css" />
+    <title>MiddleEast Ops</title>
+  </head>
+  <body>
+    <!-- Script section -->
+    <script>
+      // Function to prompt for password
+      function promptForPassword() {
+        // Check if the user is already logged in
+        if (localStorage.getItem("loggedIn") === "true") {
+          // User is already logged in, show the content
+          document.getElementById("password-prompt").style.display = "none";
+          document.getElementById("content-wrapper").style.display = "block";
+        } else {
+          // Prompt for password input
+          var password = document.getElementById("passwordInput").value;
+
+          // Check if the entered password is correct
+          if (password.toLowerCase() === "dclcp2024") {
+            // Password is correct, set the loggedIn flag and show the content
+            localStorage.setItem("loggedIn", "true");
+            document.getElementById("password-prompt").style.display = "none";
+            document.getElementById("content-wrapper").style.display = "block";
+          } else {
+            // Incorrect password, show an alert
+            alert("Please enter the correct password to access the content.");
+          }
+        }
+      }
+
+      // Check for login status on page load
+      window.onload = function () {
+        promptForPassword();
+      };
+    </script>
+
+    <!-- Password prompt section -->
+    <div id="password-prompt" class="password-prompt">
+      <p>
+        To access the Special Ops Culture Guide, please enter the password
+        below.
+      </p>
+      <img
+        src="https://live.staticflickr.com/65535/51262624119_07fb913283_z.jpg"
+        alt="Special Ops Image"
+      />
+      <form id="passwordForm">
+        <input
+          type="password"
+          id="passwordInput"
+          placeholder="Enter password"
+          onkeydown="if (event.keyCode === 13) promptForPassword()"
+        />
+        <button type="button" id="passwordButton" onclick="promptForPassword()">
+          Access
+        </button>
+      </form>
+    </div>
+
+    <!-- Content section (hidden initially) -->
+    <div id="content-wrapper" class="content-wrapper" style="display: none">
+      <div class="spinner" id="spinner"></div>
+
+      <!-- Your HTML content -->
+      <header>
+        <img
+          src="https://asset.brandfetch.io/idT4Vyjq9G/idnywrQOSe.jpeg"
+          alt="Griz Logo"
+          class="griz-logo"
+        />
+        <img
+          src="https://live.staticflickr.com/65535/51262624119_07fb913283_z.jpg"
+          alt="Header Image"
+        />
+        <h1>MiddleEast Ops</h1>
+      </header>
+
+      <div class="intro-section">
+        <div class="youtube-container" style="margin-top: 20px">
+          <iframe
+            src="https://www.youtube.com/embed/QH3H2j1eDZs"
+            allowfullscreen
+            frameborder="0"
+          ></iframe>
+        </div>
+        <p>
+          Welcome to Middle East Ops for Special Forces! This guide provides
+          crucial cultural insights on the Middle East. Dive into specific
+          facets by clicking on any category below, each with a paragraph,
+          illustrative video, and 2 reflection questions. After reading and
+          watching, reflect on what you have learned using the category prompts.
+          Let's gear up for a deeper understanding!
+        </p>
+      </div>
+
+      <h2>Select the Category you would like to learn more about</h2>
+      <nav id="categories">
+        <!-- Categories will be dynamically populated from data.json -->
+      </nav>
+
+      <main id="content">
+        <!-- Content will be dynamically loaded based on user selection -->
+      </main>
+
+      <!-- Reflections container -->
+      <div id="reflections" class="reflections"></div>
+
+      <!-- Scroll-to-top arrow -->
+      <div class="scroll-arrow" onclick="scrollToTop()">&#9650;</div>
+      <script src="script.js"></script>
+    </div>
+  </body>
+</html>
