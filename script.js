@@ -136,26 +136,4 @@ document.addEventListener("DOMContentLoaded", function () {
       scrollArrow.style.display = "none";
     }
   });
-
-  window.promptForPassword = function () {
-    if (localStorage.getItem("loggedIn") === "true") {
-      document.getElementById("password-prompt").style.display = "none";
-      document.getElementById("content-wrapper").style.display = "block";
-    } else {
-      var passwordInput = document.getElementById("passwordInput");
-      var password = passwordInput.value.trim();
-
-      if (password !== null && password.toLowerCase() === "dclcp2024") {
-        localStorage.setItem("loggedIn", "true");
-        document.getElementById("password-prompt").style.display = "none";
-        document.getElementById("content-wrapper").style.display = "block";
-      } else {
-        alert("Please enter the correct password to access the content.");
-      }
-    }
-  };
-
-  window.onload = function () {
-    promptForPassword();
-  };
 });
