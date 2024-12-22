@@ -7,20 +7,16 @@ body {
 }
 
 header {
-  background: linear-gradient(45deg, #70002e, #ed8b00);
+  background-color: #70002e;
   color: white;
   text-align: center;
-  padding: 2rem 1rem;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-  position: sticky;
-  top: 0;
-  z-index: 1000;
+  padding: 1em;
 }
+
 nav {
-  background: #70002e;
+  background-color: #70002e;
   padding: 0.5em;
   text-align: left; /* Align the entire nav to the left */
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
 
 nav a {
